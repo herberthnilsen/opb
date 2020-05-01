@@ -26,9 +26,20 @@ class Application_Model_SalesMapper
     }
  
 
-    public function fetchAll()
+    public function fetchAll(  $limit=10, $page=null)
     {
-        $resultSet = $this->getDbTable()->fetchAll('id < 10');
+
+        $select = $this->getDbTable()->select()
+        ->order('id asc');
+        if($page > 0){
+
+            $select->limit($limit, ($page-1)*$limit);
+        }else{
+            $select->limit($limit);
+        }
+
+        $timestamp = (int) (microtime(true) * 1000);
+        $resultSet = $this->getDbTable()->fetchAll($select);
         $entries   = array();
         foreach ($resultSet as $row) {
             $entry = new Application_Model_Sales();
@@ -38,6 +49,7 @@ class Application_Model_SalesMapper
                 ;
             $entries[] = $entry;
         }
+        $entries['time']=((int) (microtime(true) * 1000))-$timestamp;
         return $entries;       
     }
 }

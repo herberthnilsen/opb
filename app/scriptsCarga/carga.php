@@ -84,13 +84,14 @@ for($i =2; $i<= 80000000; $i++){
         ];
 
 
-        echo "ID =>".$i;
+        // echo "ID =>".$i;
         $stmt->execute($data);
         if($aux ==1000){
-                set_time_limit(300);
-                $db->commit();
-                $db->beginTransaction();
-                $aux = 0;
+            echo $i.'\n';
+            set_time_limit(300);
+            $db->commit();
+            $db->beginTransaction();
+            $aux = 0;
         }
         $aux++;
 

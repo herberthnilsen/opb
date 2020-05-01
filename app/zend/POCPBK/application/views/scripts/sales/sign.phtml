@@ -1,0 +1,21 @@
+<br /><br />
+<div id="view-content">
+	 
+<?php
+	$this->form->setAction($this->url());
+	echo $this->form; 
+?>
+<dl>
+	<?php echo 'Tempo Execução em milissegundos -> '. $this->time;?>
+	<hr/>
+	<?php
+		if($this->entries != null){
+
+			foreach ($this->entries as $entry): ?>
+		<dt>ID Sales - <?php echo $this->escape($entry->id) ?></dt>
+		<dd>ID Product -<?php echo $this->escape($entry->product) ?></dd>
+			<?php endforeach; 
+		}
+		?>
+</dl>
+</div>
