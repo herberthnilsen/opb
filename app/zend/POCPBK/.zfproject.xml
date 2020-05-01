@@ -11,10 +11,23 @@
           <actionMethod actionName="index"/>
         </controllerFile>
         <controllerFile controllerName="Error"/>
+        <controllerFile controllerName="Sales">
+          <actionMethod actionName="index"/>
+        </controllerFile>
       </controllersDirectory>
       <formsDirectory enabled="false"/>
-      <layoutsDirectory enabled="false"/>
-      <modelsDirectory/>
+      <layoutsDirectory>
+        <layoutScriptsDirectory>
+          <layoutScriptFile layoutName="layout"/>
+        </layoutScriptsDirectory>
+      </layoutsDirectory>
+      <modelsDirectory>
+        <dbTableDirectory>
+          <dbTableFile dbTableName="Sales"/>
+        </dbTableDirectory>
+        <modelFile modelName="SalesMapper"/>
+        <modelFile modelName="Sales"/>
+      </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <servicesDirectory enabled="false"/>
       <viewsDirectory>
@@ -24,6 +37,9 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Error">
             <viewScriptFile forActionName="error"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Sales">
+            <viewScriptFile forActionName="index"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
@@ -50,7 +66,7 @@
       <publicScriptsDirectory enabled="false"/>
       <publicImagesDirectory enabled="false"/>
       <publicIndexFile filesystemName="index.php"/>
-      <htaccessFile filesystemName=".htaccess"/>
+      <!-- <htaccessFile filesystemName=".htaccess"/> -->
     </publicDirectory>
     <projectProvidersDirectory enabled="false"/>
     <temporaryDirectory enabled="false"/>
