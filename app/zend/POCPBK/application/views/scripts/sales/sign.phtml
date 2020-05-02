@@ -6,7 +6,10 @@
 	echo $this->form; 
 ?>
 <dl>
-	<?php echo 'Tempo Execução em milissegundos -> '. $this->time;?>
+	<?php 
+	echo 'Tempo Execução Apenas consulta em milissegundos -> '. $this->timeDB;
+	echo '<br/>Tempo Execução Total em milissegundos -> '. $this->time;
+	?>
 	<hr/>
 	<?php
 		if($this->entries != null){

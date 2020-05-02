@@ -28,6 +28,8 @@ class SalesController extends Zend_Controller_Action
                 $result = $mapper->fetchAll($form->getValues()['qtdRegistros']);
                 
                 $this->view->time = $result['time'];
+                $this->view->timeDB = $result['timeDB'];
+                array_pop($result);
                 array_pop($result);
                 
                 $this->view->entries = $result;

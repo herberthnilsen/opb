@@ -40,6 +40,7 @@ class Application_Model_SalesMapper
 
         $timestamp = (int) (microtime(true) * 1000);
         $resultSet = $this->getDbTable()->fetchAll($select);
+        $timestampDB=(int) (microtime(true) * 1000);
         $entries   = array();
         foreach ($resultSet as $row) {
             $entry = new Application_Model_Sales();
@@ -49,6 +50,7 @@ class Application_Model_SalesMapper
                 ;
             $entries[] = $entry;
         }
+        $entries['timeDB']=$timestampDB-$timestamp;
         $entries['time']=((int) (microtime(true) * 1000))-$timestamp;
         return $entries;       
     }
