@@ -25,7 +25,9 @@ class SalesController extends Zend_Controller_Action
             if ($form->isValid($request->getPost())) {
             
                 $mapper  = new Application_Model_SalesMapper();
-                $result = $mapper->fetchAll($form->getValues()['qtdRegistros']);
+                $qtdRegistros = $form->getValues()['qtdRegistros'] ==null || $form->getValues()['qtdRegistros'] == 0 ? 10 : $form->getValues()['qtdRegistros'];
+
+                $result = $mapper->fetchAll($qtdRegistros);
                 
                 $this->view->time = $result['time'];
                 $this->view->timeDB = $result['timeDB'];
