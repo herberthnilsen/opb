@@ -54,27 +54,27 @@ function insertProducts($db, $filename){
 
 }
 
-//carga dos arquivos de customer e products
-// $dir = opendir("./carga");
+/*/carga dos arquivos de customer e products
+ $dir = opendir("./carga");
 
-// while (false !== ($filename = readdir($dir))) {
+ while (false !== ($filename = readdir($dir))) {
 
-//     if(strstr($filename, "customers")){
+     if(strstr($filename, "customers")){
       
-//         $echo=insertCustomers($db, $filename);
-//     }elseif(strstr($filename, "products") ){
+         $echo=insertCustomers($db, $filename);
+     }elseif(strstr($filename, "products") ){
         
-//         $echo =insertProducts($db, $filename);
-//     }
+         $echo =insertProducts($db, $filename);
+     }
 
-// }
-
+ }
+*/
 //Executar carga de 80milhoes
 $lines = "";
 $aux=1;
 $db->beginTransaction();
 $stmt=$db->prepare("INSERT INTO sales( id, product_id, customer_id) VALUES (?,?,?)");
-for($i =2; $i<= 80000000; $i++){
+for($i =1; $i<= 80000000; $i++){
     try{
 
         $data=[
