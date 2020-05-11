@@ -25,14 +25,32 @@ class Application_Model_SalesMapper
         return $this->_dbTable;
     }
  
+    public function findByCustomerName($customerName){
 
-    public function fetchAll(  $limit=10, $page=null)
+        if($customerName != null && $customerName !=''){
+
+            $select = $this->getDbTable()
+                ->select()
+                ->from($this->getDbTable())
+                ->setIntegrityCheck(false)
+                ->join(['c'=>'atpc_user.customers'], 'c.id=sales.customer_id', array())
+                ->columns(['c.name as customer_name'])
+                ->where("lower(c.name) like ?", strtolower($customerName.'%'))
+                ->order('c.name asc');
+            return $select;
+        }
+        return null;
+    }
+
+    public function fetchAll(  $limit=10, $page=null, $select=null)
     {
 
-        $select = $this->getDbTable()->select()
-        ->order('id asc');
-        if($page > 0){
+        if($select==null){
+            $select = $this->getDbTable()->select()
+            ->order('id asc');
+        }
 
+        if($page > 0){
             $select->limit($limit, ($page-1)*$limit);
         }else{
             $select->limit($limit);

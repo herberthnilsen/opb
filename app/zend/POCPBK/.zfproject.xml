@@ -27,6 +27,7 @@
       <modelsDirectory>
         <dbTableDirectory>
           <dbTableFile dbTableName="Sales"/>
+          <dbTableFile dbTableName="Customers"/>
         </dbTableDirectory>
         <modelFile modelName="SalesMapper"/>
         <modelFile modelName="Sales"/>

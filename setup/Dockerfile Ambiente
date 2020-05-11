@@ -56,8 +56,7 @@ RUN a2enmod rewrite
 
 RUN rm /etc/apache2/sites-enabled/000-default.conf && cp /var/www/html/opb/app/zend.conf /etc/apache2/sites-enabled/
 
-RUN rm -R /var/www/html/opb/app
-#VOLUME C:/Users/hnilsen/Documents/Clientes/PJBzzank/POC/app/:/var/www/html
+#VOLUME C:/Users/hnilsen/Documents/Clientes/PJBank/POC/app/:/var/www/html
  
 EXPOSE 80:80
 
