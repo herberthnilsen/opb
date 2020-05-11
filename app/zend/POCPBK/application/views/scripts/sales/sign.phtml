@@ -1,3 +1,30 @@
+<script>
+function proximaPagina(){
+	let page = document.getElementById('page');
+	page.value = Number.parseInt(page.value)+1;
+	return true;
+}
+
+function primeiraPagina(){
+	let page = document.getElementById('page');
+	page.value = 1;
+	return true;
+}
+
+function ultimaPagina(){
+	let page = document.getElementById('page');
+	let qtdRegistros = document.getElementById('qtdRegistros');
+	page.value = 80000000-Number.parseInt(qtdRegistros);
+	return true;
+}
+
+
+function paginaAnterior(){
+	let page = document.getElementById('page');
+	page.value = Number.parseInt(page.value)-1;
+	return true;
+}
+</script>
 <br /><br />
 <div id="view-content">
 	 
