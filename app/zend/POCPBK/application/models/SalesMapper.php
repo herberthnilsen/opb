@@ -46,22 +46,19 @@ class Application_Model_SalesMapper
     {
 
         if($select==null){
-            $select = $this->getDbTable()->select()
-            ->order('id asc');
+            $select = $this->getDbTable()->select();
         }
 
         if($page > 0){
-            // $select->limit($limit, ($page-1)*$limit);
+            $select->limit($limit, ($page-1)*$limit);
         }else{
-            // $select->limit($limit);
+            $select->limit($limit);
         }
-        $select->where('rownum between 0 and 10');
 
         $timestamp = (int) (microtime(true) * 1000);
         $resultSet = $this->getDbTable()->fetchAll($select);
         $timestampDB=(int) (microtime(true) * 1000);
         $entries   = array();
-
         foreach ($resultSet as $row) {
             $entry = new Application_Model_Sales();
             $entry->setId($row->ID)
