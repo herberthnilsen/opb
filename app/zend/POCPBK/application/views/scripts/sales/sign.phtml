@@ -45,10 +45,10 @@ function paginaAnterior(){
 		<dt>ID Sales - <?php echo $this->escape($entry->id) ?></dt>
 		<dd>ID Product -<?php echo $this->escape($entry->product) ?></dd>
 		<?php 
-		// if($entry->customerName != ''){?>
+		if($entry->CustomerName != ''){?>
 		<dd>CustomerName -<?php echo $this->escape($entry->CustomerName) ?></dd>
 		<?php	
-		// }
+		}
 		?>
 			<?php endforeach; 
 		}
