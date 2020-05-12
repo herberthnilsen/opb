@@ -5,7 +5,16 @@ class Application_Model_Sales
     protected $_id;
     protected $_product;
     protected $_customer_id;
+    protected $_customer_name;
 
+    public function setCustomerName($customerName){
+        $this->_customer_name = $customerName;
+        return $this;
+    }
+
+    public function getCustomerName(){
+        return $this->_customer_name;
+    }
     public function setId(int $idSales){
         $this->_id = $idSales;
         return $this;    
